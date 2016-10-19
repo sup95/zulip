@@ -227,6 +227,13 @@ function in_browser_notify(message, title, content) {
         message: {html: notification_html},
         fadeOut: {enabled: true, delay: 4000}
     }).show();
+    
+    $('.top-right').on('click', function (e) {
+        ui.change_tab_to('#home');
+        narrow.deactivate();
+        setTimeout(navigate.maybe_scroll_to_selected, 0);
+        e.preventDefault();
+    });
 }
 
 exports.notify_above_composebox = function (note, link_class, link_msg_id, link_text) {
